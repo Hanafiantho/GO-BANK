@@ -19,12 +19,61 @@ func main() {
 		fmt.Scan(&menu)
 
 		// handle condition for check balance
-		if menu == 1 {
-			fmt.Println("Your balance is", accountBalance)
-		}
+		// if menu == 1 {
+		// 	fmt.Println("Your balance is", accountBalance)
+		// }
 
 		// handle condition for deposit money
-		if menu == 2 {
+		// if menu == 2 {
+		// 	var depositAmount float64
+
+		// 	fmt.Print("Input deposit amount: ")
+		// 	fmt.Scan(&depositAmount)
+
+		// 	// deposit amount validation
+		// 	if depositAmount <= 0 {
+		// 		fmt.Println("Invalid amount! deposit amount must be greater than 0")
+		// 		continue // this will makes read code start from the top of loop
+		// 	}
+
+		// 	accountBalance += depositAmount // equal to accountBalance = accountBalance + deposit
+		// 	fmt.Println("Your updated balance is", accountBalance)
+		// }
+
+		// handle condition for withdraw money
+		// if menu == 3 {
+		// 	var withdrawalAmount float64
+
+		// 	fmt.Print("Input withdrawal amount: ")
+		// 	fmt.Scan(&withdrawalAmount)
+
+		// 	// withdrawal amount validation (zero value)
+		// 	if withdrawalAmount <= 0 {
+		// 		fmt.Println("Invalid amount! withdrawal amount must be greater than 0")
+		// 		continue // this will makes read code start from the top of loop
+		// 	}
+
+		// 	// withdrawal amount validation (withdrawal amount greater that account balance)
+		// 	if withdrawalAmount > accountBalance {
+		// 		fmt.Println("Invalid amount! withdrawal amount must be less than account balance")
+		// 		continue // this will makes read code start from the top of loop
+		// 	}
+
+		// 	accountBalance -= withdrawalAmount // equal to accountBalance = accountBalance - withdrawalAmount
+		// 	fmt.Println("Your updated balance is", accountBalance)
+		// }
+
+		// handle condition for exit
+		// if menu == 4 {
+		// 	fmt.Println("Goodbye!")
+		// 	break // this will makes read code out of the loop
+		// }
+
+		// alternative of using if statement is using switch
+		switch menu {
+		case 1:
+			fmt.Println("Your balance is", accountBalance)
+		case 2:
 			var depositAmount float64
 
 			fmt.Print("Input deposit amount: ")
@@ -33,15 +82,12 @@ func main() {
 			// deposit amount validation
 			if depositAmount <= 0 {
 				fmt.Println("Invalid amount! deposit amount must be greater than 0")
-				continue // this will makes read code start from the top of loop
+				continue
 			}
 
-			accountBalance += depositAmount // equal to accountBalance = accountBalance + deposit
+			accountBalance += depositAmount
 			fmt.Println("Your updated balance is", accountBalance)
-		}
-
-		// handle condition for withdraw money
-		if menu == 3 {
+		case 3:
 			var withdrawalAmount float64
 
 			fmt.Print("Input withdrawal amount: ")
@@ -50,25 +96,23 @@ func main() {
 			// withdrawal amount validation (zero value)
 			if withdrawalAmount <= 0 {
 				fmt.Println("Invalid amount! withdrawal amount must be greater than 0")
-				continue // this will makes read code start from the top of loop
+				continue
 			}
 
 			// withdrawal amount validation (withdrawal amount greater that account balance)
 			if withdrawalAmount > accountBalance {
 				fmt.Println("Invalid amount! withdrawal amount must be less than account balance")
-				continue // this will makes read code start from the top of loop
+				continue
 			}
 
-			accountBalance -= withdrawalAmount // equal to accountBalance = accountBalance - withdrawalAmount
+			accountBalance -= withdrawalAmount
 			fmt.Println("Your updated balance is", accountBalance)
-		}
-
-		// handle condition for exit
-		if menu == 4 {
+		default:
 			fmt.Println("Goodbye!")
-			break // this will makes read code out of the loop
+			fmt.Println("Thank you for choosing our bank!")
+			return // in switch break does not mean that it will close from the loop proccess instead of the swith case
 		}
 	}
 
-	fmt.Println("Thank you for choosing our bank!")
+	// fmt.Println("Thank you for choosing our bank!")
 }
