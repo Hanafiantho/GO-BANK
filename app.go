@@ -1,6 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+}
 
 func main() {
 	var menu int
@@ -38,6 +46,7 @@ func main() {
 
 		// 	accountBalance += depositAmount // equal to accountBalance = accountBalance + deposit
 		// 	fmt.Println("Your updated balance is", accountBalance)
+		// 	writeBalanceToFile(accountBalance)
 		// }
 
 		// handle condition for withdraw money
@@ -61,6 +70,7 @@ func main() {
 
 		// 	accountBalance -= withdrawalAmount // equal to accountBalance = accountBalance - withdrawalAmount
 		// 	fmt.Println("Your updated balance is", accountBalance)
+		// 	writeBalanceToFile(accountBalance)
 		// }
 
 		// handle condition for exit
@@ -87,6 +97,7 @@ func main() {
 
 			accountBalance += depositAmount
 			fmt.Println("Your updated balance is", accountBalance)
+			writeBalanceToFile(accountBalance)
 		case 3:
 			var withdrawalAmount float64
 
@@ -107,6 +118,7 @@ func main() {
 
 			accountBalance -= withdrawalAmount
 			fmt.Println("Your updated balance is", accountBalance)
+			writeBalanceToFile(accountBalance)
 		default:
 			fmt.Println("Goodbye!")
 			fmt.Println("Thank you for choosing our bank!")
